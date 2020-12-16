@@ -7,10 +7,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GererCom {
-    public void test(){
-        System.out.println("hemlo ");
+    public void addCompte(int code,double solde) {
+        Connection cx = SingletonConnection.getConnection();
+        try {
+            PreparedStatement pr = cx.prepareStatement("insert into compte (code,solde) values (?,?)");
+            pr.setInt(1, code);
+            pr.setDouble(2,solde);
+            pr.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
-
 
     public List<Compte> getAllCompte() {
         Connection cx = SingletonConnection.getConnection();
