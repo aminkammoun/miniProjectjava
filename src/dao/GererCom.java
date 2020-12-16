@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GererCom {
+    public void test(){
+        System.out.println("hemlo ");
+    }
 
 
     public List<Compte> getAllCompte() {
